@@ -69,3 +69,19 @@ FROM
 	LEFT JOIN Genre ON Song.GenreId = Genre.GenreId
 GROUP BY
 	Genre.GenreId;
+
+SELECT
+	Album.Title,
+	MAX(AlbumLength) AS LongestAlbumLength
+FROM
+	Album;
+
+SELECT
+	Song.Title,
+	Album.Title,
+	MAX(SongLength) AS LongestSongLength
+FROM
+	Song
+	JOIN Album
+WHERE
+	Song.AlbumId = Album.AlbumId;
